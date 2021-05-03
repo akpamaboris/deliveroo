@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap");
+header {
+  border-bottom: 1px solid rgba(21, 21, 21, 0.16);
+}
+h1 {
+  font-size: 32px;
+  font-family: Oxygen;
+  font-weight: bold;
+  color: #2e3333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header img {
+  width: 170px;
+  margin-left: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-bottom p {
+  color: #2e3333;
+  font-size: 19px;
+  margin-top: 50px;
+  width: 700px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-bottom {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 30px;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.header-bottom img {
+  width: 350px;
+}
+header-bottom .col1 {
+  margin: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-bottom .col1 p {
+  color: #868a8a;
+}
+
+.header-bottom .col2 img {
+  border-radius: 7px;
+}
+
+main {
+  background-color: #f3f5f5;
+  display: flex;
+}
+
+.category {
+  display: flex;
+  flex-wrap: wrap;
+}
+main h2 {
+  color: #2e3333;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: Oxygen;
+  padding: 20px;
+}
+
+main img {
+  width: 140px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+/* .dis-mm {
+  display: flex;
+  flex-direction: row;
+  width: 10%;
+} */
+.menu-mini {
+  background-color: white;
+  width: 400px;
+  height: 170px;
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+}
+
+.menu-mini h3 {
+  color: #2e3333;
+  font-family: -apple-system, BlinkMacSystemFont;
+  font-size: 18px;
+  font-weight: regular;
+  max-width: 230px;
+}
+.menu-mini p {
+  color: #808484;
+  font-family: -apple-system, BlinkMacSystemFont;
+  font-size: 14px;
+  font-weight: regular;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em;
+  line-height: 2em;
+  max-width: 230px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.menu-mini img {
+  margin-left: 20px;
+}
+
+#price {
+  font-size: 17px;
+}
+
+.Populaire {
+  margin-left: 30px;
+  color: #ff8000;
+}
+
+.Panier {
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  position: fixed;
+  right: 0;
+}
+.Panier h3 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: #bac3c3;
+  text-align: center;
+  padding: 15px;
+  margin-left: 20px;
+  width: 230px;
+  border-radius: 15px;
+  margin-top: 7px;
+}
+
+.Panier p {
+  text-align: center;
+  margin-top: 7px;
+}
+.col1-left {
+  width: 75%;
 }
