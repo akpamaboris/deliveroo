@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 header {
   border-bottom: 1px solid rgba(21, 21, 21, 0.16);
 }
@@ -94,7 +101,7 @@ main img {
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
-  max-height: 3.6em;
+  max-height: 5em;
   line-height: 2em;
   max-width: 230px;
   padding-bottom: 10px;
