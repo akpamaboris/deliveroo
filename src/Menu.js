@@ -1,7 +1,10 @@
-import Panier from "./Panier.js";
+import { Panier, incrementPrice } from "./Panier.js";
 import imgHeader from "./header-image.jpeg";
 
+import { useState } from "react";
+
 const Menu = ({ data }) => {
+  const [basket, setBasket] = useState([]);
   return (
     <>
       <div className="header-bottom">
@@ -36,7 +39,37 @@ const Menu = ({ data }) => {
                   {x.meals.map((y, id2) => {
                     return (
                       <div className="dis-mm" key={id2}>
-                        <div className="menu-mini">
+                        <div
+                          className="menu-mini"
+                          onClick={() => {
+                            const newArr = [...basket];
+
+                            if (newArr.length === 0) {
+                              newArr.push({
+                                name: y.title,
+                                price: y.price,
+                                quantity: 1,
+                              });
+                              setBasket(newArr);
+                            } else if (newArr.length > 0) {
+                              let status = newArr.some(function (el) {
+                                return el.name === y.title;
+                              });
+
+                              if (status) {
+                                console.log(y.quantity);
+                                incrementPrice(id2, basket, setBasket);
+                              } else {
+                                newArr.push({
+                                  name: y.title,
+                                  price: y.price,
+                                  quantity: 1,
+                                });
+                                setBasket(newArr);
+                              }
+                            }
+                          }}
+                        >
                           <div>
                             <h3>{y.title}</h3>
                             <p>{y.description}</p>
@@ -65,7 +98,7 @@ const Menu = ({ data }) => {
             );
           })}
         </div>
-        <Panier />
+        <Panier basket={basket} setBasket={setBasket} />
       </main>
     </>
   );
