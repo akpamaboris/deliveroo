@@ -1,10 +1,21 @@
 import { Panier, incrementPriceClick } from "./Panier.js";
 import imgHeader from "./header-image.jpeg";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Menu = ({ data }) => {
   const [basket, setBasket] = useState([]);
+  useEffect(() => {
+    if (basket.length > 0) {
+      let newArr = [...basket];
+      for (let i = 0; i < basket.length; i++) {
+        if (Number(basket[i].quantity) < 1) {
+          newArr.splice(i, 1);
+          setBasket(newArr);
+        }
+      }
+    }
+  }, [basket]);
   return (
     <>
       <div className="header-bottom">

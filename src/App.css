@@ -14,6 +14,11 @@ h1 {
   font-family: Oxygen;
   font-weight: bold;
   color: #2e3333;
+  font-size: calc(18px + (26) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.Top-page {
+  display: flex;
 }
 
 header img {
@@ -23,15 +28,16 @@ header img {
 
 .header-bottom p {
   color: #2e3333;
-  font-size: 19px;
+  font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-top: 50px;
-  width: 700px;
+  width: 600px;
 }
 
 .header-bottom {
   display: flex;
   padding: 30px;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .header-bottom img {
@@ -79,8 +85,8 @@ main img {
 } */
 .menu-mini {
   background-color: white;
-  width: 400px;
-  height: 190px;
+  width: 350px;
+  height: 230px;
   display: flex;
   margin: 20px;
   padding: 30px;

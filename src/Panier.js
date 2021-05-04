@@ -35,7 +35,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
     return <span>{Number(Number(calculatePrice()) + 2.5).toFixed(2)} €</span>;
   };
 
-  const verifyIfNull = () => {
+  function verifyIfNull() {
     let newArr = [...basket];
     for (let i = 0; i < basket.length; i++) {
       if (Number(basket[i].quantity) < 1) {
@@ -43,7 +43,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
       }
     }
     setBasket(newArr);
-  };
+  }
   return (
     <div className="Panier">
       <h3>Valider mon panier</h3>
@@ -54,24 +54,17 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
               <div key={index}>
                 <button
                   onClick={() => {
-                    console.log(index);
-                    console.log(basket[index]);
-
                     verifyIfNull();
 
                     incrementPrice(index, basket, setBasket);
-                    console.log(basket);
                   }}
                 >
                   +
                 </button>
-                {b.quantity + 1}
+                {basket[index].quantity}
                 <button
                   onClick={() => {
-                    console.log(index);
-                    console.log(basket[index]);
                     verifyIfNull();
-                    console.log("b.quantity from + button", b.quantity);
 
                     const newArr = [...basket];
                     if (newArr[index].quantity !== 0) {
@@ -80,7 +73,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
                     }
                   }}
                 >
-                  {b.quantity === 0 ? "❌" : "-"}
+                  {basket[index].quantity === 0 ? "❌" : "-"}
                 </button>
                 <span>{b.name}</span> <span>{b.price} €</span>
               </div>
