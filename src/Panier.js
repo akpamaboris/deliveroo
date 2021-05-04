@@ -23,7 +23,11 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
   };
 
   const displaySubPrice = () => {
-    return <span>Sous-Total {calculatePrice()}</span>;
+    return (
+      <span className="SubPrice">
+        <span>Sous-Total</span> <span>{calculatePrice()}</span>
+      </span>
+    );
   };
 
   const displayPrice = () => {
@@ -43,7 +47,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
   return (
     <div className="Panier">
       <h3>Valider mon panier</h3>
-      <p>
+      <div className="Panier-produit">
         {basket.length > 0
           ? basket.map((b, index) => {
               return (
@@ -70,15 +74,32 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
                   >
                     {b.quantity === 0 ? "❌" : "-"}
                   </button>
-                  {b.name} {b.price} €<div>Sous total</div>
+                  <span>{b.name}</span> <span>{b.price} €</span>
                 </div>
               );
             })
           : "Panier vide"}
-      </p>
-      <div>{basket.length > 0 ? displaySubPrice() : null}</div>
-      <div>{basket.length > 0 ? "2.5 €" : null}</div>
-      <div>Total {basket.length > 0 ? displayPrice() : null}</div>
+      </div>
+      <hr />
+      <div className="PricePanier">
+        <div>{basket.length > 0 ? displaySubPrice() : null}</div>
+        <div>
+          {basket.length > 0 ? (
+            <span className="fraislivr">
+              <span>Frais de livraison</span> <span>2.5 €</span>
+            </span>
+          ) : null}
+        </div>
+        <hr />
+        <div>
+          {basket.length > 0 ? (
+            <span className="totalpr">
+              <span>Total </span>
+              <span>{displayPrice()}</span>
+            </span>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 };
