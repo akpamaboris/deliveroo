@@ -1,4 +1,4 @@
-import { Panier, incrementPrice } from "./Panier.js";
+import { Panier, incrementPriceClick } from "./Panier.js";
 import imgHeader from "./header-image.jpeg";
 
 import { useState } from "react";
@@ -42,6 +42,7 @@ const Menu = ({ data }) => {
                         <div
                           className="menu-mini"
                           onClick={() => {
+                            console.log(y.title);
                             const newArr = [...basket];
 
                             if (newArr.length === 0) {
@@ -58,7 +59,12 @@ const Menu = ({ data }) => {
 
                               if (status) {
                                 console.log(y.quantity);
-                                incrementPrice(id2, basket, setBasket);
+                                incrementPriceClick(
+                                  id2,
+                                  basket,
+                                  setBasket,
+                                  y.title
+                                );
                               } else {
                                 newArr.push({
                                   name: y.title,

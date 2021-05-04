@@ -4,6 +4,14 @@ const incrementPrice = (index, bas, setbas) => {
   setbas(newArr);
 };
 
+const incrementPriceClick = (index, bas, setbas, title) => {
+  const newArr = [...bas];
+  let ind = newArr.findIndex((o) => o.name === title);
+
+  newArr[ind].quantity += 1;
+  setbas(newArr);
+};
+
 const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
   const calculatePrice = () => {
     let totalprice = 0;
@@ -62,4 +70,4 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
   );
 };
 
-export { Panier, incrementPrice };
+export { Panier, incrementPrice, incrementPriceClick };
