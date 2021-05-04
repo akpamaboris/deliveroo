@@ -68,7 +68,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
                       }
                     }}
                   >
-                    -
+                    {b.quantity === 0 ? "❌" : "-"}
                   </button>
                   {b.name} {b.price} €<div>Sous total</div>
                 </div>
