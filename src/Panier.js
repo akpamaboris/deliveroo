@@ -25,13 +25,14 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
   const displaySubPrice = () => {
     return (
       <span className="SubPrice">
-        <span>Sous-Total</span> <span>{calculatePrice()}</span>
+        <span>Sous-Total</span>{" "}
+        <span>{Number(calculatePrice()).toFixed(2)}</span>
       </span>
     );
   };
 
   const displayPrice = () => {
-    return <span>{calculatePrice() + 2.5} €</span>;
+    return <span>{Number(Number(calculatePrice()) + 2.5).toFixed(2)} €</span>;
   };
 
   const verifyIfNull = () => {
@@ -80,7 +81,8 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
             })
           : "Panier vide"}
       </div>
-      <hr />
+      {basket.length > 0 ? <hr /> : null}
+
       <div className="PricePanier">
         <div>{basket.length > 0 ? displaySubPrice() : null}</div>
         <div>
@@ -90,7 +92,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
             </span>
           ) : null}
         </div>
-        <hr />
+        {basket.length > 0 ? <hr /> : null}
         <div>
           {basket.length > 0 ? (
             <span className="totalpr">
