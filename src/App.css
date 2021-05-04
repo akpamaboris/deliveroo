@@ -85,6 +85,7 @@ main img {
   margin: 20px;
   padding: 20px;
   display: flex;
+  justify-content: space-between;
 }
 
 .menu-mini h3 {
