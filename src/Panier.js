@@ -30,6 +30,16 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
     return <span>{calculatePrice() + 2.5} €</span>;
   };
 
+  const verifyIfNull = () => {
+    let newArr = [...basket];
+    for (let i = 0; i < newArr.length; i++) {
+      if (newArr[i].quantity === 0) {
+        newArr.splice(i, 1);
+        setBasket(newArr);
+      }
+    }
+    setBasket(newArr);
+  };
   return (
     <div className="Panier">
       <h3>Valider mon panier</h3>
@@ -40,6 +50,8 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
                 <div key={index}>
                   <button
                     onClick={() => {
+                      verifyIfNull();
+
                       incrementPrice(index, basket, setBasket);
                     }}
                   >
@@ -49,6 +61,7 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
                   <button
                     onClick={() => {
                       const newArr = [...basket];
+                      verifyIfNull();
                       if (newArr[index].quantity !== 0) {
                         newArr[index].quantity -= 1;
                         setBasket(newArr);
