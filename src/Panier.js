@@ -49,37 +49,52 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
     <div className="Panier">
       <h3>Valider mon panier</h3>
       <div className="Panier-produit">
-        {basket.length > 0
-          ? basket.map((b, index) => {
-              return (
-                <div key={index}>
-                  <button
-                    onClick={() => {
-                      verifyIfNull();
+        {basket.length > 0 ? (
+          basket.map((b, index) => {
+            return (
+              <div key={index}>
+                <button
+                  onClick={() => {
+                    verifyIfNull();
 
-                      incrementPrice(index, basket, setBasket);
-                    }}
-                  >
-                    +
-                  </button>
-                  {b.quantity}
-                  <button
-                    onClick={() => {
-                      const newArr = [...basket];
-                      verifyIfNull();
-                      if (newArr[index].quantity !== 0) {
-                        newArr[index].quantity -= 1;
-                        setBasket(newArr);
-                      }
-                    }}
-                  >
-                    {b.quantity === 0 ? "❌" : "-"}
-                  </button>
-                  <span>{b.name}</span> <span>{b.price} €</span>
-                </div>
-              );
-            })
-          : "Panier vide"}
+                    incrementPrice(index, basket, setBasket);
+                  }}
+                >
+                  +
+                </button>
+                {b.quantity}
+                <button
+                  onClick={() => {
+                    const newArr = [...basket];
+                    verifyIfNull();
+                    if (newArr[index].quantity !== 0) {
+                      newArr[index].quantity -= 1;
+                      setBasket(newArr);
+                    }
+                  }}
+                >
+                  {b.quantity === 0 ? "❌" : "-"}
+                </button>
+                <span>{b.name}</span> <span>{b.price} €</span>
+              </div>
+            );
+          })
+        ) : (
+          <span style={{ color: "grey" }}>
+            <br />
+            <br />
+            <span
+              style={{
+                textAlign: "center",
+                position: "relative",
+                left: "100px",
+                top: "40px",
+              }}
+            >
+              Panier vide
+            </span>
+          </span>
+        )}
       </div>
       {basket.length > 0 ? <hr /> : null}
 
