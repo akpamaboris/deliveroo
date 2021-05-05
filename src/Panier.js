@@ -107,8 +107,15 @@ const Panier = ({ basket, setBasket, numberItems, setNumberItems }) => {
             </span>
           ) : null}
         </div>
-        {basket.length > 0 ? <hr /> : null}
         <div>
+          {basket.length > 0 ? (
+            <div
+              style={{ position: "relative", right: "30px", width: "532px" }}
+            >
+              <hr />
+            </div>
+          ) : null}
+
           {basket.length > 0 ? (
             <span className="totalpr">
               <span>Total </span>
